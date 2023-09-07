@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>js 2일차 2번</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // object : 객체라고 불리우며, 데이터를 저장하는 변수와 연산식이 입력되어 있는 함수를 모두 포함하고 있는 데이터 타입, 객체를 데이터만 저장하는 데이터 타입으로 사용할 수 있음
+    
+    // 배열처럼 하나의 변수명으로 여러개의 데이터를 저장할 수 있는 데이터 타입
+    // 배열은 index가 존재하지만, object 타입은 index가 없음
+    // 데이터의 구분을 위해서 key와 value가 1:1로 연동되어 있는 데이터 타입
+    // key는 중복 불가, value는 중복 가능
+    // key를 통해서 value를 저장하거나, 가져옴
+    // 기호는 {}를 사용, key와 value를 구분하기 위해서 : 을 사용, 다른 데이터를 구분하기 위해서 ","를 사용함, key? : 에는 따옴표 있어도 되고 없어도 됨.
+    // 배열은 주로 동일한 데이터 타입을 여러개 저장하기 위한 데이터 타입이지만 object 타입은 하나의 사물에 대한 여러가지 특징에 대한 데이터를 저장하기 위한 데이터 타입
+    // object 타입도 배열처럼 여러가지 타입의 데이터를 저장할 수 있음
+    
+    // 사용법 (선언)
+    // let 객체명 = {key1: value1, key2: value2, key3: value3, ...}; // object 타입 선언과 동시에 데이터 저장
+    // let 객체명 = {}; //빈 object 타입 선언
+    
+    // 사용법 (저장, 가져오기)
+    // 객체명.key명; // 가져오기
+    // 객체명.key명 = 데이터; // 저장하기
+    // 객체명["key명"]; // 가져오기
+    // 객체명["key명"] = 데이터; // 저장오기
+    
+    let obj1 = {};
+    let obj2 = {name: "아이유", job: "가수", "gender" : "여성"};
+    
+    console.log("변수 obj1의 데이터 타입 : " + typeof obj1);
+    console.log("변수 obj2의 데이터 타입 : " + typeof obj2);
+    
+    console.log(obj1);
+    console.log(obj2);
+    
+    console.log("\n--------------object 타입 사용--------------\n");
+    console.log(obj2.name);
+    console.log(obj2.job);
+    console.log(obj2.gender)
+    
+    console.log(obj2["name"]);
+    console.log(obj2["job"]);
+    console.log(obj2["gender"]);
+
+    console.log("\n--------------object 타입 저장--------------\n");
+    //object 타입의 저장
+    obj2.name = "유재석";
+    obj2.job = '방송인';
+    obj2.gender = "남성";
+    
+    console.log(obj2.name);
+    console.log(obj2.job);
+    console.log(obj2.gender);
+    
+    console.log("object 타입에 데이터 추가");
+    console.log("obj1의 데이터 : ");
+    console.log(obj1);
+    
+    // object 타입의 변수에 존재하지 않는 key값에 데이터를 대입 시 해당 object 타입의 변수에 지정한 key와 value가 1:1로 연동되면서 저장됨
+    obj1.name = "유병재";
+    obj1.gender = "남성";
+    
+    console.log("obj1에 데이터 추가 후 obj1의 데이터 : ");
+    console.log(obj1);
+
+    console.log("object 타입의 변수에 지정된 키가 없을 경우 해당 데이터는 undefined로 출력됨");
+    console.log(obj1.job);
+    
+    console.log("object 타입에 데이터 수정");
+    //object 타입의 변수에 존재하는 key에 데이터를 대입하면 기존의 데이터를 삭제하고 새 데이터를 저장함
+    
+    console.log("obj1의 key 중 name의 값 : " + obj1.name);
+    obj1.name = '유인나'; // 수정
+    obj1.gender = "여성"; // 수정
+    obj1.job = "배우"; // 추가
+    
+    console.log("obj1의 데이터 수정 후 obj1의 데이터 : ");
+    console.log(obj1);
+
+    console.log("\n--------------object 타입의 여러가지 데이터 타입 저장--------------\n");
+    let obj3 = {}; // 빈 object 타입
+    let obj4 = {0: 10, 1: 20, 2: 30} // key, 데이터를 숫자로 넣는것도 가능
+    let obj5 = {first: 10, second: 20};
+    let obj6 = {name: "홍길동", age: 25, unmarried: true};
+    let obj7 = {name: "홍길동", age: 25, feature: {height: 180, weight: 75, hobby: ["운동", "말타기"]}};
+    
+    console.log(obj3);
+    console.log(obj4);
+    console.log(obj4['0']); // key명을 숫자로 했을 경우 [key명] 형태로 사용해야 함
+    console.log(obj4['1']);
+    console.log(obj5);
+    console.log(obj5.first);
+    console.log(obj5.second);
+    console.log(obj6);
+    console.log(obj6.name);
+    console.log(obj6.age);
+    console.log(obj6.unmarried);
+    console.log(obj7);
+    console.log(obj7.name);
+    console.log(obj7['age']);
+    console.log(obj7.feature);
+    console.log(obj7.feature.height);
+    console.log(obj7.feature.weight);
+    console.log(obj7.feature.hobby);
+    console.log(obj7.feature.hobby[0]);
+    console.log(obj7.feature.hobby[1]);
+  </script>
+</head>
+<body>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>js 5일차 1번</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // 변수의 스코프 : 변수가 메모리 상에 존재하는 범위
+    // 지역 변수 : 특정 코드 블럭 내에서 선언되고 사용 및 삭제 되는 변수
+    // - 해당 코드 블록 밖에서 지역 변수를 호출할 수 없음
+    // 전역 변수 : 프로그램 전체에서 접근이 가능한 변수
+    // - 어느 코드 블록에서도 접근이 가능함
+    
+    // 자바스크립트의 변수 선언 키워드 : var, let, const
+    
+    var gVal = 100; // 전역변수
+    
+    console.log("전역변수 gVal : " + gVal);
+    
+    function func01() {
+      console.log("함수 fuck01에서 전역변수 gVal : " + gVal); // 함수 안에서 전역 변수를 호출하는 것은 문제가 없음
+    }
+    
+    func01();
+    console.log("함수 func01 호출 후 전역 변수 gVal : " + gVal);
+    
+    function func02() {
+      var lVal = 10; // 지역변수 // 함수 안에서 지역 변수를 사용하는 것은 문제가 없음
+      console.log("함수 func02에서 지역변수 lVal : " + lVal);
+    }
+    
+    func02();
+    // console.log("함수 func02 밖에서 지역변수 lVal : " + lVal); // 에러남 -> 함수 밖에서 특정 함수 안에 선언한 지역변수는 호출 할 수 없음
+    
+    function func03() {
+      var lVal = 10;
+      var gVal = 20; // 맨 위의 전역 변수 gVal과 이름이 동일한 지역변수 사용 시 해당 코드 블록 내에서는 지역변수가 우선권을 가짐
+      console.log("함수 func03에서 지역변수 lVal : " + lVal);
+      console.log("함수 func03에서 지역변수 gVal : " + gVal);
+    }
+    
+    func03();
+    // 특정 코드 블록 내에서 전역 변수와 지역 변수의 이름이 같을 경우 지역 변수가 우선권이 높기 때문에 지역변수가 사용되고, 해당 코드 블록 밖에서 지역 변수와 이름이 같은 전역 변수를 사용하면 전역 변수가 그대로 사용됨
+    console.log("함수 func03 밖에서 변수 gVal : " + gVal);
+    
+    console.log("\n-------- var --------\n")
+    // var : 자바스크립트의 변수 선언 기본 키워드,
+    // 변수의 범위가 함수를 기준으로 함
+    // - 변수의 재할당(데이터 수정) 및 재선언이 가능함
+    
+    // let : 자바스크립트 ES6에서 새로 추가된 키워드
+    // 변수의 범위가 코드 블록을 기준으로 함
+    // - 변수의 재할당은 가능하나, 재선언 불가능함
+    
+    // const : 자바스크립트 ES6에서 새로 추가된 키워드
+    // 변수의 범위가 코드 블록을 기준으로 함
+    // - const는 상수를 생성하기 때문에 선언과 동시에 값을 단 한번만 입력이 가능함
+    // - 변수의 재할당 및 재선언 불가능함
+    
+    var var01 = 100;
+    function scopeFunc01() {
+      var var02 = 200;
+      console.log("함수 scopeFunc01에서 var02 : " + var02);
+    }
+    
+    scopeFunc01();
+    
+    console.log("함수 scopeFunc01 밖에서 var01 : " + var01);
+    // console.log("함수 scopeFunc01 밖에서 var02 : " + var02);
+    
+    if (true) {
+      var var03 = 300;
+      console.log("if문 안에서 var03 : " + var03);
+    }
+    
+    console.log("if문 밖에서 var03 : " + var03);
+    
+    for (var i = 0; i < 1; i++) {
+      var var04 = 400;
+      console.log("for문 안에서 var04 : " + var04);
+    }
+    
+    console.log("for문 밖에서 var04 : " + var04);
+    
+    var var01 = 1000;
+    var var02 = 2000;
+    var var03 = 3000;
+    var var04 = 4000;
+    
+    console.log("재선언한 var01 : " + var01);
+    console.log("재선언한 var02 : " + var02);
+    console.log("재선언한 var03 : " + var03);
+    console.log("재선언한 var04 : " + var04);
+
+    console.log("\n-------- let --------\n")
+    
+    let let01 = 100;
+    
+    function scopeFunc02() {
+      let let02 = 200;
+      console.log("함수 scopeFunc02 안에서 let01 : " + let01);
+      console.log("함수 scopeFunc02 안에서 let02 : " + let02);
+    }
+    
+    scopeFunc02();
+    console.log("함수 scopeFunc02 밖에서 let01 : " + let01);
+    // console.log("함수 scopeFunc02 밖에서 let02 : " + let02);
+    
+    if (true) {
+      let let03 = 300;
+      console.log("if문 안에서 let03 : " + let03);
+    }
+    // console.log("if문 밖에서 let03 : " + let03); // let 키워드로 생성한 변수는 스코프가 코드블록을 기준으로 하기 때문에 코드 블럭 밖에서 호출할 수 없음
+    
+    for (let i = 0; i < 1; i++) {
+      let let04 = 400;
+      console.log("for문 안에서 let04 : " + let04)
+    }
+    // console.log("for문 밖에서 let04 : " + let04)
+    
+    // let let01 = 1000;
+    // console.log("변수 let01을 재선언 : " + let01); // -> let은 재선언 불가능하기 때문에 에러남
+
+    let01 = 1000;
+    console.log("변수 let01을 재할당 : " + let01); // -> let을 사용하여 변수를 선언 시 동일한 이름으로 다시 선언하는 것이 불가능함
+    // 기존에 생성된 변수를 활용하는 것만 가능함
+    
+    console.log("\n-------- const --------\n")
+    
+    const const01 = 100;
+    
+    function scopeFunc03() {
+      const const02 = 200;
+      console.log("함수 scopeFunc03 안에서 const01 : "+ const01);
+      console.log("함수 scopeFunc03 안에서 const02 : "+ const02);
+    }
+    scopeFunc03();
+    console.log("함수 scopeFunc03 밖에서 const01 : "+ const01);
+    // console.log("함수 scopeFunc03 밖에서 const02 : "+ const02);
+    
+    if (true) {
+      const const03 = 300;
+      console.log("if문 안에서 const03 : " + const03);
+    }
+    // console.log("if문 밖에서 const03 : " + const03);
+    
+    for (let i = 0; i < 1; i++) {
+      const const04 = 400;
+      console.log("for문 안에서 const04 : " + const04);
+    }
+    // console.log("for문 밖에서 const04 : " + const04);
+    
+    // const를 사용하여 선언된 상수는 재할당 및 재선언이 불가능한 상수임
+    // const const01 = 100;
+    // const01 = 1000;
+    
+    // const를 사용하여 상수를 선언 시 선언과 동시에 데이터를 입력해야 함
+    // const const05; // 선언만 함 -> 에러
+    // const05 = 5000;
+    const const05 = 5000; // 선언과 동시에 데이터를 입력
+    let let05;
+    let05 = 5000;
+    
+    // ※ 데이터 저장을 위한 변수 선언 시 let과 const를 기본으로 사용하고, 명백하게 데이터가 변경되는 변수일 경우에만 let을 사용함 (기본으로 const를 사용)
+
+    
+    
+  </script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

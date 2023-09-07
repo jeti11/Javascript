@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>js 3일차 2번</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // switch : if문과 같은 조건문
+    // if문으로 대체가 가능함
+    // break; 문은 생략가능하지만, 생략하면 안됨
+    // break문이 생략되면 case 문이 선택된 후 break를 만나거나 switch ~ case문이 종료될 때까지 계속 실행함
+    // if문은 조건식을 범위로 설정할 경우 주로 사용하고, switch문은 조건식이 고정되어 있는 값(요일, 날짜, 월)일 경우 주로 사용
+    
+    // break : 제어문 내에서 break문을 만날 경우 해당 제어문을 즉시 종료하는 명령어, 주로 반복문과 switch ~ case문에 사용됨
+    // 사용법 :
+    // switch (비교값) {
+    //    case 값1:
+    //    비교값과 일치할 경우 실행할 소스코드
+    //    break;
+    //    case 값2:
+    //    비교값과 일치할 경우 실행할 소스코드
+    //    break;
+    //    case 값3:
+    //    비교값과 일치할 경우 실행할 소스코드
+    //    break;
+    //    ...
+    //    default:
+    //    모든 case 문과 일치하지 않을 경우 실행할 소스코드
+    // //    break;
+    //
+    // // Date() : 자바스크립트에서 제공하는 날짜 관련 클래스
+    // let today = new Date("2023-03-25");
+    // // getDay() : Date 정보를 기반으로 요일 정보를 숫자로 가져옴 (0: 일요일, 1: 월요일, ~ 6: 토요일)
+    // let dayOfWeek = today.getDay();
+    //
+    // console.log("현재 시간 : " + today);
+    //
+    // console.log(dayOfWeek);
+    //
+    // switch (dayOfWeek) {
+    //   case 1:
+    //     console.log("월요일 입니다.")
+    //     break;
+    //
+    //   case 2:
+    //     console.log("화요일 입니다.")
+    //     break;
+    //
+    //   case 3:
+    //     console.log("수요일 입니다.")
+    //     break;
+    //
+    //   case 4:
+    //     console.log("목요일 입니다.")
+    //     break;
+    //
+    //   case 5:
+    //     console.log("금요일 입니다.")
+    //     break;
+    //
+    //   default:
+    //     console.log("주말입니다.")
+    // }
+    //
+    // console.log("\n ----- 실수로 break; 생략할 경우 -------\n")
+    // today = new Date("2023-03-28");
+    // dayOfWeek = today.getDay();
+    // console.log("dayOfWeek : " + dayOfWeek)
+    //
+    // switch (dayOfWeek) {
+    //   case 1:
+    //     console.log("월요일 입니다.")
+    //     break;
+    //
+    //   case 2:
+    //     console.log("화요일 입니다.")
+    //
+    //   case 3:
+    //     console.log("수요일 입니다.")
+    //
+    //   case 4:
+    //     console.log("목요일 입니다.")
+    //
+    //   case 5:
+    //     console.log("금요일 입니다.")
+    //     break;
+    //
+    //   case 6:
+    //     console.log("토요일 입니다.")
+    //
+    //   case 7:
+    //     console.log("일요일 입니다.")
+    //     break;
+    // }
+    //
+    // console.log("\n ----- 의도적으로 break; 생략할 경우 -------\n")
+    // // break;를 생략하고 case 여러개를 통합하여 범위 설정을 할 수 있음
+    // today = new Date("2023-03-29");
+    // dayOfWeek = today.getDay();
+    // console.log("dayOfWeek : " + dayOfWeek)
+    //
+    // switch (dayOfWeek) {
+    //   case 1:
+    //   case 2:
+    //     console.log("월화 드라마가 방송됩니다.")
+    //     break;
+    //
+    //   case 3:
+    //   case 4:
+    //     console.log("수목 드라마가 방송됩니다.")
+    //     break;
+    //
+    //   case 5:
+    //     console.log("금요일 입니다.")
+    //     break;
+    //
+    //   case 6:
+    //   case 0:
+    //     console.log("주말입니다.")
+    //     break;
+    // }
+    //
+    // console.log("\n ----- switch ~ case문을 if문으로 대체하기 -------\n")
+    //
+    // // if문으로 switch ~ case 문을 완전히 대체할 수 있음
+    //
+    // today = new Date("2023-03-28");
+    // dayOfWeek = today.getDay();
+    // console.log("dayOfWeek : " + dayOfWeek)
+    //
+    // if (dayOfWeek == 1) {
+    //   console.log("월요일 입니다.")
+    // }
+    // else if (dayOfWeek == 2) {
+    //   console.log("화요일 입니다.")
+    // }
+    // else if (dayOfWeek == 3) {
+    //   console.log("수요일 입니다.")
+    // }
+    // else if (dayOfWeek == 4) {
+    //   console.log("목요일 입니다.")
+    // }
+    // else if (dayOfWeek == 5) {
+    //   console.log("금요일 입니다.")
+    // }
+    // else if (dayOfWeek == 6) {
+    //   console.log("토요일 입니다.")
+    // }
+    // else if (dayOfWeek == 7) {
+    //   console.log("일요일 입니다.")
+    // }
+
+    console.log("\n ----- 문제 1 -------\n")
+    
+    // 문제 1) 사용자 입력을 통해서 날짜를 입력받고, 각 월에 하고 싶은 일을 한가지 출력하는 프로그램을 작성하세요
+    // * 날짜 입력방식 : xxxx-xx-xx
+    // ** getMonth() : 입력한 날짜에서 월 정보를 가져옴(0 ~ 11)
+    // *** 1 ~ 12월까지 각각의 달에 하고 싶은 일을 switch ~ case 문으로 출력
+    
+    
+    let date = new Date(); // ->현재 시간을 기준으로 날짜 시간 정보 가져오기
+    let inputMonth = prompt("원하시는 달을 입력하세요", "3");
+    inputMonth = Number(inputMonth);
+    
+    date.setMonth(inputMonth); // -> 입력받은 정보로 날짜의 달을 변경
+    console.log(date);
+    console.log(inputMonth);
+    
+    let month = date.getMonth();
+    
+    switch (month) {
+      case 1:
+        console.log("계획하기")
+        break;
+      case 2:
+        console.log("책읽기")
+        break;
+      case 3:
+        console.log("산책하기")
+        break;
+      case 4:
+        console.log("취미만들기")
+        break;
+      case 5:
+        console.log("수영하기")
+        break;
+      case 6:
+        console.log("쇼핑하기")
+        break;
+      case 7:
+        console.log("여행하기")
+        break;
+      case 8:
+        console.log("운동하기")
+        break;
+      case 9:
+        console.log("효도하기")
+        break;
+      case 10:
+        console.log("취업하기")
+        break;
+      case 11:
+        console.log("저금하기")
+        break;
+      default:
+        console.log("열일하기")
+        break;
+    }
+    // else if 문의 else 문과 switch ~ case 문의 default 문은 생략이 가능함
+    // else if 문은 모든 조건식을 다 사용했을 경우, else문을 생략 가능
+    // 혹은 의도적으로 지정한 조건식만 처리하고 나머지는 실행하지 않을 경우 생략 가능
+    // switch ~ case문은 case문에서 모든 조건값을 다 지정했을 경우, default문을 생략 가능
+    // 혹은 의도적으로 지정한 조건값만 처리하고 나머지는 실행하지 않을 경우 생략 가능
+    
+  </script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

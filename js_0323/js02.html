@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>js 1일차 2번</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="./js/bootstrap.bundle.js"></script>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // alert("확인 버튼이 있는 메시지 창 출력");
+    //
+    // let result = confirm("확인/취소 버튼이 있는 메시지 창 출력");
+    // alert("confirm 명령어 사용 후 결과 : " + result);
+    //
+    // result = prompt("사용자 입력을 받기 위한 메시지 창 출력");
+    // alert("prompt 명령어로 사용자 입력 결과 : " + result);
+    //
+    // result = prompt("기본값 사용하기", "기본값");
+    // alert("prompt 명령어로 사용자 입력 결과 : " + result);
+    //
+    // console.log("자바스크립트의 내용을 화면에 출력할 때 주로 사용");
+    
+  //     변수 : 하나의 이름으로 하나의 데이터를 저장할 수 있는 메모리 공간
+  //     변수에 새로운 데이터를 저장 시 기존의 데이터는 삭제 (데이터가 변경될 수 있음)
+  //     한번 데이터 저장 후 변경할 수 없는 변수를 상수라고 함
+  //     변수 선언 시 사용하는 키워드는 var, let, const 가 존재함
+  //     var와 let은 변수를 선언 시 사용
+  //     현재는 var보다 let을 사용하는 것이 좋음
+  //     const 상수를 선언시 사용
+  //     상수는 데이터를 선언과 동시에 저장해야 함
+  //     (상수는 변경 불가능이기 때문에 선언과 동시에 데이터 저장을 1번만 허용함
+  
+  //     자바스크립트 변수의 특징 :
+  //     자바스크립트는 변수에 데이터 타입을 설정하지 않음 (데이터 저장 시 내부적으로 데이터 타입을 확인)
+  //     -> 자바스크립트의 변수에는 모든 타입의 데이터를 다 저장할 수 있음 (자바는 불가능)
+  
+  //     자바스크립트 변수 선언 시 규칙 (자바에도 동일)
+  //     1. 변수명은 영어(소문자)로 입력
+  //     2. 특수문자 사용 불가(제외 _, $)
+  //     3. 영어 대소문자를 구분함
+  //     4. 변수명에 숫자 사용 가능 (첫글자로는 사용 불가)
+  //     5. 자바스크립트 예약어는 변수명으로 사용 불가
+  //     6. 변수명에 여러개의 단어를 조합하여 사용할 경우 첫 단어는 모두 소문자, 두번째 이후의 단어는 첫글자는 대문자, 나머지는 소문자로 입력(카멜명명법)
+  
+  //     사용법 :
+  //     선언 :
+  //     1. 키워드 변수명;
+  //        변수명 = 데이터;
+  //     2. 키워드 변수명 = 데이터;
+  
+  //     사용 :
+  //     console.log(변수명);
+  //     변수3 = 변수1 + 변수2;
+    
+    // 1번 방식, 변수를 먼저 선언하고, 데이터는 필요시에 저장하여 사용하는 방식
+    var num1;
+    num1 = 100;
+    // 2번 방식, 변수를 선언과 동시에 데이터를 저장하여 사용하는 방식
+    var num2 = 200;
+    
+    // 변수에 저장된 데이터를 화면에 출력
+    console.log(num1);
+    console.log(num2);
+    
+    let num3;
+    num3 = 100;
+    let num4 = 200;
+  
+    console.log(num3);
+    console.log(num4);
+    
+    // const 키워드는 상수를 선언 시 사용, 상수는 선언과 동시에 데이터를 입력해야 함
+    // const num5;
+    // num5 = 100;
+  
+    const num6 = 200;
+    // num6 = 2000;
+    
+    // console.log(num5);
+    console.log(num6);
+    
+  
+    
+    // 변수도 한 라인에 하나의 변수를 선언하는 것이 좋음
+    var currentYear;
+    var birthYear;
+    var age;
+    
+    var currentYear, birthYear, age; //한번에 여러개의 변수를 동시에 선언, 가독성이 떨어지기 때문
+    
+    var currentYear = 2023;
+    var birthYear;
+    var age;
+    
+    console.log("\n------------\n")
+    birthYear = prompt("태어난 연도를 입력하세요. (YYYY)", "");
+    age = currentYear - birthYear + 1;
+    console.log(birthYear + "년에 태어난 사람의 나이는 " + age + "세 입니다.")
+    
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</head>
+<body>
+
+</body>
+</html>

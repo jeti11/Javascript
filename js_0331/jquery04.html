@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>jquery 2일차 4번</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .blue {
+      color: blue;
+    }
+    
+    .important {
+      font-weight: bold;
+      font-size: xxx-large;
+    }
+    
+    /* 부트스트랩으로 넣으면 !important가 붙어있어서 css로 배경색 지정했음*/
+    #p01 {
+      background-color: red;
+    }
+    
+    #p02 {
+      background-color: green;
+    }
+    
+    #p03 {
+      background-color: blue;
+    }
+  </style>
+  
+  <script>
+    // css 클래스 추가/삭제 --> ex) 웹페이지의 주간/야간모드 작동
+    // style 태그를 사용하여 미리 생성해 놓은 css 클래스를 추가/삭제
+    
+    // addClass('클래스명') : 지정한 태그에 지정한 클래스를 추가
+    // removeClass('클래스명') : 지정한 태그에 입력되어 있는 클래스를 삭제
+    // toggleClass('클래스명') : addClass() / removeClass()를 번갈아가며 실행
+    
+    $(document).ready(function (){
+      $('#btn-addClass').on('click', function (){
+        $('h1, h2').addClass('blue');
+        $('p').addClass('important');
+      })
+  
+      $('#btn-removeClass').on('click', function (){
+        $('h1, h2').removeClass('blue');
+        $('p').removeClass('important');
+      })
+  
+      $('#btn-toggleClass').on('click', function (){
+        $('h1, h2').toggleClass('blue');
+        $('p').toggleClass('important');
+      })
+  
+      // css('css속성명', '속성값') : 지정한 태그에 css 속성을 추가하거나 가져오는 함수
+      // 미리 생성해 놓은 css 클래스가 아니라 css()에 직접 필요한 css 속성을 추가/수정하는 함수
+      // 여러개의 css속성을 입력 시 javascript object 타입을 사용함
+  
+      // 사용방법 :
+      // 변수 = $('css선택자').css('css속성명');
+      // $('css선택자').css('css속성명', 'css속성값');
+      // $('css선택자').css({'css속성명1': '속성값1', 'css속성명2': '속성값2', ...});
+      
+      $('#btn-getCss').on('click', function (){
+        const attr = $('#p01').css('background-color');
+        alert('css()를 사용하여 가져온 background-color의 색상 : ' + attr);
+      })
+  
+      $('#btn-setCss').on('click', function (){
+        $('#p02').css('background-color', 'yellow');
+        alert('css()를 사용하여 background-color의 색상을 yellow로 변경');
+      })
+  
+      $('#btn-setCssMulti').on('click', function (){
+        $('#p03').css({
+          'background-color': 'dodgerblue',
+          'font-size': '24px',
+          'color': 'white'
+        });
+        alert('css()를 사용하여 동시에 여러가지 css속성을 변경');
+      })
+    })
+
+
+    
+  </script>
+</head>
+<body>
+  <div class="container my-4">
+    <h3>addClass() / removeClass() / toggleClass()</h3>
+    
+    <div class="my-4">
+      <button type="button" class="btn btn-primary" id="btn-addClass">addClass()로 클래스 추가</button>
+      <button type="button" class="btn btn-primary" id="btn-removeClass">removeClass()로 클래스 삭제</button>
+      <button type="button" class="btn btn-primary" id="btn-toggleClass">toggleClass()로 클래스 추가/삭제</button>
+    </div>
+    <div class="my-3">
+      <h1>버튼 클릭 시 클래스가 추가/삭제 될 태그</h1>
+      <h2>버튼 클릭 시 클래스가 추가/삭제 될 태그</h2>
+      <p>버튼 클릭 시 클래스가 추가/삭제 될 태그</p>
+    </div>
+  
+    <hr>
+    
+    <h3>css()</h3>
+    
+    <div>
+      <button type="button" class="btn btn-primary" id="btn-getCss">css()로 속성값 가져오기</button>
+      <button type="button" class="btn btn-primary" id="btn-setCss">css()로 속성값 설정하기</button>
+      <button type="button" class="btn btn-primary" id="btn-setCssMulti">css()로 여러개의 속성값 설정하기</button>
+    </div>
+    <div class="my-3">
+      <p id="p01">버튼 클릭 시 css 설정값 출력</p>
+      <p id="p02">버튼 클릭 시 css 설정값 설정</p>
+      <p id="p03">버튼 클릭 시 css 설정값 여러개 설정</p>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

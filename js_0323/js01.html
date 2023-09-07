@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>js 1일차 1번</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="./js/bootstrap.bundle.js"></script>
+  <!--  자바스크립트 적용 방식-->
+  <!-- 1. inline : html 태그에 자바스크립트 소스코드를 직접 입력하는 방식-->
+  <!-- 2. 파일 내부 작성 : html 문서 안에 <script></script> 태그를 사용하고 자바스크립트 소스 코드를 입력하는 방식-->
+  <!-- 3. 외부 파일 로드 : html 문서 안에 <script scr="경로"></script>태그를 사용하여 미리 만들어 놓은 자바 스크립트 파일을 가져와서 만드는 방식-->
+  
+  <!--  html, css, javascript는 기본적으로 html 문서에서 위에서 아래로 한줄씩 실행되는 형태-->
+  <!--  javascript에서 html 태그를 제어하고자 할 경우 자바스크립트 코드가 먼저 실행되면 제어하고자 하는 html 태그가 존재하지 않을 수 있음-->
+  <!--    javascript는 주로 body 태그의 가장 아래에 사용함-->
+  <!--    javascript는 이벤트를 사용하여 html 태그가 모두 로딩된 후 지정한 javascript가 동작하도록 하는 방법을 제공함-->
+<!--  <script>-->
+<!--    document.addEventListener("DOMContentLoaded", function () {-->
+<!--      let btn2 = document.querySelector("#btn02");-->
+<!--      btn2.addEventListener("click", function () {-->
+<!--      });-->
+<!--      -->
+<!--    })-->
+<!--  </script>-->
+</head>
+<body>
+<div class="container">
+  <button type="button" class="btn btn-primary" id="btn01" onclick="alert('인라인 방식으로 동작!!');">인라인 방식 사용</button>
+  <button type="button" class="btn btn-primary" id="btn02">파일 내부 작성 방식 사용</button>
+  <button type="button" class="btn btn-primary" id="btn03">외부 파일 로드 방식 사용</button>
+</div>
+<div>
+  <a href="#" class="btn">
+  
+  </a>
+</div>
+<script>
+  let_btn2 = document.querySelector("#btn02");
+  btn2.addEventListener("click", function () {
+    alert("파일 내부 작성 방식으로 동작!!");
+  });
+</script>
+
+<!--<script src="./js/myscript.js"></script>-->
+</body>
+</html>
